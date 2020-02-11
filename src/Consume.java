@@ -1,7 +1,7 @@
-import static org.junit.Assert.assertEquals;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.time.LocalDate;
+
 
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -23,11 +23,11 @@ class Consume {
 		driver.findElement(By.xpath("//*[@id=\"ucfrom\"]")).sendKeys("75");
 	
 		WebElement convResult = driver.findElement(By.xpath("//*[@id=\"ucto\"]"));
-		System.out.print(convResult.getAttribute("value"));
+	
 		Double convResult75 = Double.parseDouble(convResult.getAttribute("value"));
-		System.out.println(convResult75);
 		
-		Double hours75 = 20/convResult75;
+		
+		Double hours75 = kilometers/convResult75;
 		Double minutes75 = hours75*60;
 		
 		driver.findElement(By.xpath("//*[@id=\"ucfrom\"]")).clear();
@@ -37,14 +37,14 @@ class Consume {
 		Double convResult55 = Double.parseDouble(convResult.getAttribute("value"));
 		
 		
-		Double hours55 = 20/convResult55;
+		Double hours55 = kilometers/convResult55;
 		Double minutes55 = hours55*60;
 		
 		Double difference = minutes55 - minutes75;
 		
 		driver.close();
 		
-		assertTrue(difference<2);
+		assertTrue(difference<5);
 		
 		
 
